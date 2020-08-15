@@ -1,0 +1,711 @@
+  [1m[35m (1.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (58.5ms)[0m  [1m[35mCREATE DATABASE `dev_hotel_management` DEFAULT CHARACTER SET `utf8`[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE DATABASE `test_hotel_management` DEFAULT CHARACTER SET `utf8`[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (513.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (647.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT GET_LOCK('7806774566858641605', 0)[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+Migrating to CreateRoomTypes (20200815032754)
+  [1m[35m (617.2ms)[0m  [1m[35mCREATE TABLE `room_types` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `price` float(24), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20200815032754_create_room_types.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (52.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200815032754')[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (58.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+Migrating to CreateRooms (20200815032923)
+  [1m[35m (461.4ms)[0m  [1m[35mCREATE TABLE `rooms` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `room_type_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20200815032923_create_rooms.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (27.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200815032923')[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (87.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+Migrating to CreateCustomers (20200815033206)
+  [1m[35m (480.3ms)[0m  [1m[35mCREATE TABLE `customers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `address` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20200815033206_create_customers.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200815033206')[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (42.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+Migrating to CreateBookings (20200815033210)
+  [1m[35m (373.7ms)[0m  [1m[35mCREATE TABLE `bookings` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `check_in` date, `check_out` date, `room_id` int, `customer_id` varchar(255), `integer` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20200815033210_create_bookings.rb:3
+  [1m[35m (9.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (11.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200815033210')[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (105.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+Migrating to CreateBookingDates (20200815033217)
+  [1m[35m (420.9ms)[0m  [1m[35mCREATE TABLE `booking_dates` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `date` date, `booking_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  ↳ db/migrate/20200815033217_create_booking_dates.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200815033217')[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (43.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2020-08-15 03:33:44', '2020-08-15 03:33:44')[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (54.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT RELEASE_LOCK('7806774566858641605')[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/bitlasoft/.rvm/gems/ruby-2.5.5/bin/rake:23
+  [1m[36mRoomType Load (3.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`name` = 'Single' LIMIT 1[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoomType Create (44.3ms)[0m  [1m[32mINSERT INTO `room_types` (`name`, `price`, `created_at`, `updated_at`) VALUES ('Single', 7000.0, '2020-08-15 03:45:01', '2020-08-15 03:45:01')[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (58.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A1' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (2.0ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A1', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (54.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A2' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.6ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A2', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (75.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A3' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.6ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A3', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (57.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A4' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.6ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A4', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (42.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A5' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.5ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A5', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B1' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.4ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B1', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (43.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B2' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B2', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (46.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B3' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.7ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B3', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (38.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (19.8ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B4' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (2.6ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B4', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (57.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B5' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.7ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B5', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C1' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C1', 1, '2020-08-15 03:45:02', '2020-08-15 03:45:02')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (43.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C2' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C2', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (46.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C3' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.4ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C3', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (44.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C4' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C4', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (39.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C5' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.4ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C5', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D1' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D1', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (44.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D2' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D2', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (39.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D3' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D3', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.8ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D4' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (0.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D4', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (41.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D5' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 1 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D5', 1, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (39.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (2.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`name` = 'Double' LIMIT 1[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoomType Create (19.0ms)[0m  [1m[32mINSERT INTO `room_types` (`name`, `price`, `created_at`, `updated_at`) VALUES ('Double', 8500.0, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (52.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A6' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (2.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A6', 2, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (46.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A7' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.6ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A7', 2, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (44.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A8' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (2.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A8', 2, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (47.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A9' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A9', 2, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (45.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'A10' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('A10', 2, '2020-08-15 03:45:03', '2020-08-15 03:45:03')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (42.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B6' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B6', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (41.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B7' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (0.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B7', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (38.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B8' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B8', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (43.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B9' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.0ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (0.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B9', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (50.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'B10' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('B10', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (44.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C6' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C6', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (44.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C7' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.0ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C7', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (42.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (2.1ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C8' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (2.6ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C8', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C9' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C9', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (47.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'C10' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('C10', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (46.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D6' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.6ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D6', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (45.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D7' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (2.1ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D7', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (41.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D8' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D8', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (46.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.8ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D9' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.4ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D9', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (43.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D10' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 2 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.0ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D10', 2, '2020-08-15 03:45:04', '2020-08-15 03:45:04')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (44.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`name` = 'Queen' LIMIT 1[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoomType Create (1.1ms)[0m  [1m[32mINSERT INTO `room_types` (`name`, `price`, `created_at`, `updated_at`) VALUES ('Queen', 12000.0, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (43.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D11' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D11', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (46.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D12' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D12', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (37.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D13' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.0ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D13', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (34.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.1ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D14' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.1ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (0.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D14', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D15' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.4ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D15', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (45.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D16' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.5ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D16', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D17' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D17', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (41.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D18' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D18', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (41.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (2.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D19' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (2.5ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.6ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D19', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (71.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'D20' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('D20', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (45.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E1' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.8ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E1', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (43.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E2' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.9ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 3 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.8ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E2', 3, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (41.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.1ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`name` = 'King' LIMIT 1[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoomType Create (1.1ms)[0m  [1m[32mINSERT INTO `room_types` (`name`, `price`, `created_at`, `updated_at`) VALUES ('King', 20000.0, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (43.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRoom Load (2.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E3' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.6ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E3', 4, '2020-08-15 03:45:05', '2020-08-15 03:45:05')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (90.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E4' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E4', 4, '2020-08-15 03:45:06', '2020-08-15 03:45:06')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (34.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E5' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.3ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (0.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E5', 4, '2020-08-15 03:45:06', '2020-08-15 03:45:06')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (45.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E6' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.4ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E6', 4, '2020-08-15 03:45:06', '2020-08-15 03:45:06')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (43.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E7' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.1ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.0ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E7', 4, '2020-08-15 03:45:06', '2020-08-15 03:45:06')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E8' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.1ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (0.9ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E8', 4, '2020-08-15 03:45:06', '2020-08-15 03:45:06')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E9' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (2.6ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E9', 4, '2020-08-15 03:45:06', '2020-08-15 03:45:06')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT  `rooms`.* FROM `rooms` WHERE `rooms`.`name` = 'E10' LIMIT 1[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoomType Load (1.2ms)[0m  [1m[34mSELECT  `room_types`.* FROM `room_types` WHERE `room_types`.`id` = 4 LIMIT 1[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRoom Create (1.2ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `room_type_id`, `created_at`, `updated_at`) VALUES ('E10', 4, '2020-08-15 03:45:06', '2020-08-15 03:45:06')[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (45.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
