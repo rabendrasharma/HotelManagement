@@ -1,0 +1,42 @@
+
+<section class="parallax-effect">
+    <div class="color-overlay"> 
+      <!-- Page title -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <h1>All Bookings</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag( '/search_customer', :method => :post, remote: true ) do %>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <div class="form-group">
+            <label class="control-label required" for="select">Search Customer</label>
+            <%= text_field_tag :search, "", placeholder: "Search by customer name" %>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <%= submit_tag("Search", :class=>"btn btn-info", :name=>"submit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="bookings">
+        <%= render :partial => "bookings" %>
+      </div>
+    </div>
+  </div>
+</div>

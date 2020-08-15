@@ -1,0 +1,24 @@
+<% if @bookings.present? %>
+  <table class="table table-bordred table-striped">
+    <thead>
+      <tr>
+        <td>Customer Name</td>
+        <td>Check In</td>
+        <td>Check Out</td>
+        <td>#</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.customer.name %></td>
+          <td><%= booking.check_in %></td>
+          <td><%= booking.check_out %></td>
+          <td><%= link_to "Edit Customer", edit_customer_path(id: booking.id), class: "btn btn-info"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No Bookings Found
+<% end %>

@@ -1,0 +1,24 @@
+<% if @rooms.present? %>
+  <table class="table table-bordred table-striped">
+    <thead>
+      <tr>
+        <td>Room Name</td>
+        <td>Room Type</td>
+        <td>Room Price</td>
+        <td>#</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= room.name %></td>
+          <td><%= room.room_type.name %></td>
+          <td><%= room.room_type.price %></td>
+          <td><%= link_to "Book", new_booking_path(room_id: room.id, check_in: params[:check_in], check_out: params[:check_out]), class: "btn btn-info"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No Booking Availability! Please Search
+<% end %>

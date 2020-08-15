@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30 text-center">
+      <h2>Room Booking</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
+      <div class="tour-booking-form">
+        <%= form_tag( '/bookings', :method => :post ) do %>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt30">
+              <h4 class="tour-form-title">User Detail</h4>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+              <div class="form-group">
+                <label class="control-label" for="name">Name</label>
+                <%= text_field_tag "customer[name]", "", class: 'form-control', placeholder: "Full Name", required: true %>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+              <div class="form-group">
+                <label class="control-label" for="email"> Email</label>
+                <%= text_field_tag "customer[email]", "", class: 'form-control', placeholder: "xxxx@xxxx.xxx", required: true %>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+              <div class="form-group">
+                <label class="control-label" for="phone"> Phone</label>
+                <%= text_field_tag "customer[phone]", "", class: 'form-control', placeholder: "(222) 222-2222", required: true %>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+              <div class="form-group">
+                <label class="control-label" for="country">Address</label>
+                <%= text_field_tag "customer[address]", "", class: 'form-control', placeholder: "India", required: true %>
+              </div>
+            </div>
+            <%= hidden_field_tag :room_id, params[:room_id]%>
+            <%= hidden_field_tag :check_in, params[:check_in]%>
+            <%= hidden_field_tag :check_out, params[:check_out]%>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <!-- <button type="submit" name="singlebutton" class="btn btn-primary">send Enquiry</button> -->
+              <%= submit_tag("Submit", :class=>"btn btn-primary", :name=>"submit") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+
+<section class="parallax-effect">
+    <div class="color-overlay"> 
+      <!-- Page title -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <h1>Search Rooms</h1>
+          </div>
+          <div class="col-sm-6" style="text-align: right; margin-top: 20px;">
+            <%= link_to "Bookings", bookings_path, class: "btn btn-info" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag( '/filter_rooms', :method => :post, remote: true ) do %>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <div class="form-group">
+            <label class="control-label required" for="select">Check In</label>
+            <%= date_field_tag(:check_in, Date.today)%>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <div class="form-group">
+            <label class="control-label" for="datepicker">Check Out</label>
+            <%= date_field_tag(:check_out, Date.today+1.day)%>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <div class="form-group">
+            <label class="control-label" for="datepicker">Room Type</label>
+            <%= select_tag "room_type", options_for_select(RoomType.all.map{|r| [r.name, r.id]}.insert(0, "Select Room Type"))%>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <%= submit_tag("Search", :class=>"btn btn-info", :name=>"submit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="rooms">
+        <%= render :partial => "rooms" %>
+      </div>
+    </div>
+  </div>
+</div>
